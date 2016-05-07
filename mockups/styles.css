@@ -1,0 +1,228 @@
+* {
+  box-sizing: border-box;
+  font: 400 14px 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  background: #262522;
+  height: 100%;
+  width: 80px;
+}
+
+.sidebar-option {
+  color: #a39c99;
+  cursor: pointer;
+  display: block;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.sidebar-option:hover {
+  color: white;
+}
+
+.sidebar-option.sidebar-option--primary {
+  background: #dca700;
+  color: #fff;
+  position: relative;
+  padding: 23px 0;
+  margin-bottom: 12px;
+}
+
+.sidebar-option.sidebar-option--base {
+  background: black;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 80px;
+}
+
+.sidebar-option.sidebar-option--primary:after {
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 12px solid #dca700;
+  bottom: -12px;
+  content: '';
+  left: 0;
+  position: absolute;
+}
+
+.content {
+  flex: 1;
+}
+
+.content-header {
+  background: #f4f4f4;
+  height: 60px;
+  padding: 0 32px;
+}
+
+.content-header-segment {
+  color: #a39c99;
+  display: inline-block;
+  text-transform: uppercase;
+  line-height: 60px;
+}
+
+.content-header-segment:not(:last-of-type):after {
+  content: '\00bb';
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 300;
+  margin: -9px 5px 0 8px;
+  vertical-align: middle;
+}
+
+.content-header-segment--active {
+  color: #262522;
+}
+
+.progress-marker {
+  display: flex;
+  counter-reset: progress-marker-counter;
+  list-style: none;
+  padding: 0;
+  margin: 40px 60px 0;
+}
+
+.progress-marker-element {
+  border-bottom: 1px solid #a39c99;
+  color: #a39c99;
+  flex: 1;
+  font-weight: 300;
+  padding: 0 0 12px;
+  position: relative;
+}
+
+.progress-marker-element:last-of-type {
+  border-bottom: none;
+}
+
+.progress-marker-element:before {
+  content: counter(progress-marker-counter, decimal-leading-zero);
+  counter-increment: progress-marker-counter;
+  display: inline-block;
+  margin: 0 8px 0 0;
+  text-align: center;
+  width: 20px;
+}
+
+.progress-marker-element:after {
+  content: '';
+  display: block;
+  border: 6px solid white;
+  background: #a39c99;
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+  position: absolute;
+  bottom: -10px;
+}
+
+.progress-marker-element--active {
+  color: #dca700;
+  font-weight: 600;
+}
+
+.progress-marker-element--active:after {
+  background: #dca700;
+}
+
+.character-information {
+  display: flex;
+  margin: 40px 60px 0;
+}
+
+.character-information-input {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.information-input {
+  float: left;
+  padding: 0 12px 24px;
+  width: 50%;
+}
+
+.information-input--large {
+  width: 100%;
+}
+
+.information-input:after {
+  color: #a39c99;
+  content: attr(data-label);
+  display: inline-block;
+  font: 400 12px 'Open Sans', sans-serif;
+  margin: 4px 0 0;
+  text-transform: uppercase;
+}
+
+.information-input input {
+  border-bottom: 1px solid #a39c99;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  color: #262522;
+  font: 400 20px/32px 'Open Sans', sans-serif;
+  width: 100%;
+}
+
+.character-information-preview {
+  flex: 1;
+}
+
+.character-information-start {
+  background: #f4f4f4;
+  margin: 12px;
+  float: left;
+  height: 284px;
+  width: calc(50% - 24px);
+}
+
+.character-information-start--large {
+  height: auto;
+  width: calc(100% - 24px);
+}
+
+.information-table-value {
+  color: #262522;
+  font: 400 18px/32px 'Open Sans', sans-serif;
+  padding: 20px;
+  position: relative;
+}
+
+.information-table-value:not(:last-of-type):after {
+  border-right: 1px solid #a39c99;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20px;
+  bottom: 20px;
+}
+
+.information-table-description {
+  color: #262522;
+  padding: 0 20px 20px;
+}
+
+.information-table-description p {
+  font: 400 14px/20px 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+.information-table-value:before {
+  color: #a39c99;
+  content: attr(data-label);
+  display: block;
+  font: 400 11px 'Open Sans', sans-serif;
+  text-transform: uppercase;
+}
