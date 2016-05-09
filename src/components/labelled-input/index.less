@@ -1,0 +1,36 @@
+@import '../variables.less';
+
+.labelled-input {
+  float: left;
+  width: 50%;
+
+  &__label {
+    float: left;
+    margin: 0;
+    padding: 0 12px 24px;
+    width: 100%;
+
+    &__input {
+      border-bottom: 1px solid @grey;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      color: @dark-grey;
+      font: 400 20px/32px 'Open Sans', sans-serif;
+      width: 100%;
+    }
+
+    &:after {
+      color: @grey;
+      content: attr(data-label);
+      display: inline-block;
+      font: 400 12px 'Open Sans', sans-serif;
+      margin: 4px 0 0;
+      text-transform: uppercase;
+    }
+  }
+
+  &--2 {
+    width: 100%;
+  }
+}

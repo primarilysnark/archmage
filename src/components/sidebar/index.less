@@ -1,0 +1,47 @@
+@import '../variables.less';
+
+.sidebar {
+  background: @dark-grey;
+  height: 100%;
+  width: 80px;
+
+  &__option {
+    color: @grey;
+    cursor: pointer;
+    display: block;
+    padding: 20px 0;
+    text-align: center;
+
+    &:hover {
+      color: @white;
+    }
+
+    &--base {
+      background: black;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      width: 80px;
+    }
+
+    &--primary {
+      background: @gold;
+      color: @white;
+      height: 60px;
+      line-height: 60px;
+      padding: 0;
+      position: relative;
+      margin: 0 0 12px;
+
+      &:after {
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-top: 12px solid @gold;
+        bottom: -12px;
+        content: '';
+        left: 0;
+        position: absolute;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import '../variables.less';
+
+.header {
+  background: @light-grey;
+  height: 60px;
+  padding: 0 32px;
+
+  &__navigation__segment {
+    color: @grey;
+    display: inline-block;
+    text-transform: uppercase;
+    line-height: 60px;
+
+    &:not(:last-of-type):after {
+      content: '\00bb';
+      display: inline-block;
+      font-size: 30px;
+      font-weight: 300;
+      margin: -9px 8px 0 10px;
+      vertical-align: middle;
+    }
+
+    &--active {
+      color: @dark-grey;
+    }
+  }
+}
