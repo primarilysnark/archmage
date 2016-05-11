@@ -31,6 +31,38 @@ const STEPS = [
 ];
 
 export default class App extends Component {
+  state = {
+    character: {
+      background: 'Regent',
+      name: 'Leanansidhe',
+      race: 'Half-Elf',
+    },
+  };
+
+  updateBackground = (event) => this.setState({
+    ...this.state,
+    character: {
+      ...this.state.character,
+      background: event.target.value,
+    },
+  });
+
+  updateName = (event) => this.setState({
+    ...this.state,
+    character: {
+      ...this.state.character,
+      name: event.target.value,
+    },
+  });
+
+  updateRace = (event) => this.setState({
+    ...this.state,
+    character: {
+      ...this.state.character,
+      race: event.target.value,
+    },
+  });
+
   render() {
     return (
       <div className="app">
@@ -39,9 +71,9 @@ export default class App extends Component {
           <Header />
           <Wizard steps={STEPS} currentStep={0}>
             <WizardPanel>
-              <LabelledInput size={2} />
-              <LabelledInput />
-              <LabelledInput />
+              <LabelledInput onChange={this.updateName} label="Name" size={2} value={this.state.character.name} />
+              <LabelledInput onChange={this.updateRace} label="Race" value={this.state.character.race} />
+              <LabelledInput onChange={this.updateBackground} label="Background" value={this.state.character.background} />
             </WizardPanel>
             <WizardPanel>
               <InformationPanel size={2} />
