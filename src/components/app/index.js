@@ -39,8 +39,9 @@ export default class App extends Component {
     },
   };
 
+  openInfo = () => this.setState({ isInfoOpen: true })
+
   updateBackground = (event) => this.setState({
-    ...this.state,
     character: {
       ...this.state.character,
       background: event.target.value,
@@ -48,7 +49,6 @@ export default class App extends Component {
   });
 
   updateName = (event) => this.setState({
-    ...this.state,
     character: {
       ...this.state.character,
       name: event.target.value,
@@ -56,7 +56,6 @@ export default class App extends Component {
   });
 
   updateRace = (event) => this.setState({
-    ...this.state,
     character: {
       ...this.state.character,
       race: event.target.value,
