@@ -1,9 +1,9 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry:  './src',
+  entry: './src',
   output: {
-    path:     'dist',
+    path: 'dist',
     filename: 'bundle.js',
   },
   module: {
@@ -12,7 +12,7 @@ module.exports = {
         test: /\.(jpg|jpeg)$/,
         loader: 'url-loader',
         query: {
-          limit: 100000
+          limit: 100000,
         },
       },
       {
@@ -20,7 +20,7 @@ module.exports = {
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader!less-loader'),
       },
       {
-        test:   /\.jsx?$/,
+        test: /\.jsx?$/,
         excluse: /(node_modules)/,
         loader: 'babel',
         query: {
@@ -28,9 +28,9 @@ module.exports = {
         },
       },
       {
-        test: require.resolve("react"),
-        loader: "expose?React"
-      }
+        test: require.resolve('react'),
+        loader: 'expose?React',
+      },
     ],
   },
   plugins: [
