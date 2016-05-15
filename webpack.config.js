@@ -7,12 +7,6 @@ module.exports = {
     filename: 'bundle.js',
   },
   module: {
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loader: 'eslint',
-      },
-    ],
     loaders: [
       {
         test: /\.(jpg|jpeg)$/,
