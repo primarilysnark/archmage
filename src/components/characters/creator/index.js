@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import InformationPanel from '../information-panel';
-import LabelledInput from '../labelled-input';
-import WizardPanel from '../wizard-panel';
+import InformationPanel from '../../information-panel';
+import LabelledInput from '../../labelled-input';
+import WizardPanel from '../../wizard-panel';
 import './index.less';
 
 export default class CharacterCreator extends Component {

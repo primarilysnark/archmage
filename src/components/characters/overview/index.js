@@ -1,6 +1,6 @@
 import { Component, PropTypes } from 'react';
-import Header from '../header';
-import Wizard from '../wizard';
+import Header from '../../header';
+import Wizard from '../../wizard';
 import './index.less';
 
 const STEPS = [
