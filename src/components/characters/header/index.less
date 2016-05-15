@@ -1,6 +1,6 @@
-@import '../variables.less';
+@import '../../variables.less';
 
-.header {
+.character-header__header {
   background: @light-grey;
   height: 60px;
   padding: 0 32px;
@@ -8,10 +8,16 @@
   &__navigation__segment {
     color: @grey;
     display: inline-block;
+    text-decoration: none;
     text-transform: uppercase;
     line-height: 60px;
 
+    &:hover {
+      color: @dark-grey;
+    }
+
     &:not(:last-of-type):after {
+      color: @grey;
       content: '\00bb';
       display: inline-block;
       font-size: 30px;
