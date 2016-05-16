@@ -1,5 +1,5 @@
-import { Component, PropTypes } from 'react';
 import { IndexLink } from 'react-router';
+import React, { Component, PropTypes } from 'react';
 import './index.less';
 
 export default class CharacterHeader extends Component {

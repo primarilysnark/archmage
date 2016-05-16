@@ -8,11 +8,9 @@ module.exports = {
     filename: 'server.bundle.js',
   },
   target: 'node',
-  externals: fs.readdirSync(path.resolve(__dirname, 'node_modules'))
-    .concat([
-      'react-dom/server', 'react/addons',
-    ])
-    .reduce((ext, mod) => Object.assign({}, ext, { [mod]: `commonjs ${mod}` }), {}),
+  externals: fs.readdirSync('node_modules')
+    .filter((x) => ['.bin'].indexOf(x) === -1)
+    .reduce((nodeModules, module) => Object.assign({}, nodeModules, { [module]: `commonjs ${module}` })),
   node: {
     __filename: true,
     __dirname: true,
@@ -20,12 +18,20 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         loader: 'babel',
         exclude: /node_modules/,
         query: {
           presets: ['react', 'es2015', 'stage-0'],
         },
+      },
+      {
+        test: /\.less$/,
+        loader: 'ignore',
+      },
+      {
+        test: require.resolve('react'),
+        loader: 'expose?React',
       },
     ],
   },

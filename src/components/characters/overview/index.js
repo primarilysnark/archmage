@@ -1,6 +1,6 @@
-import { Component } from 'react';
 import InformationPanel from '../../information-panel';
 import LabelledInput from '../../labelled-input';
+import React, { Component } from 'react';
 import WizardPanel from '../../wizard-panel';
 import './index.less';
 

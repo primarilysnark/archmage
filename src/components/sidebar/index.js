@@ -1,5 +1,5 @@
-import { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
+import React, { Component, PropTypes } from 'react';
 import './index.less';
 
 export default class Sidebar extends Component {
