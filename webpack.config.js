@@ -35,15 +35,20 @@ module.exports = {
     ],
   },
   plugins: process.env.NODE_ENV === 'production' ? [
-      new ExtractTextPlugin('styles.css', {
-        allChunks: true,
-      }),
-      new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.OccurrenceOrderPlugin(),
-      new webpack.optimize.UglifyJsPlugin()
-    ] : [
-      new ExtractTextPlugin('styles.css', {
-        allChunks: true,
-      }),
-    ],
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"',
+      },
+    }),
+    new ExtractTextPlugin('styles.css', {
+      allChunks: true,
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
+  ] : [
+    new ExtractTextPlugin('styles.css', {
+      allChunks: true,
+    }),
+  ],
 };
