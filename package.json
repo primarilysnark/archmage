@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./src/**/**.js",
-    "start": "npm run lint && webpack && webpack-dev-server --inline --content-base public/ --history-api-fallback"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:dev": "webpack-dev-server --inline --content-base public/ --history-api-fallback",
+    "start:prod": "webpack && node bin/server.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,7 @@
     "expose-loader": "^0.7.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
+    "if-env": "^1.0.0",
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
     "style-loader": "^0.13.1",
@@ -43,6 +46,8 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.13.4",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-router": "^2.4.0"

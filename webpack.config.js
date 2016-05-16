@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src',
@@ -33,9 +34,16 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new ExtractTextPlugin('styles.css', {
-      allChunks: true,
-    }),
-  ],
+  plugins: process.env.NODE_ENV === 'production' ? [
+      new ExtractTextPlugin('styles.css', {
+        allChunks: true,
+      }),
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.optimize.UglifyJsPlugin()
+    ] : [
+      new ExtractTextPlugin('styles.css', {
+        allChunks: true,
+      }),
+    ],
 };
