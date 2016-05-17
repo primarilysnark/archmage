@@ -11,7 +11,17 @@ export default class App extends Component {
     isInfoOpen: false,
   };
 
-  openInfo = () => this.setState({ isInfoOpen: true });
+  hideInfo = () => {
+    this.setState({ isInfoOpen: false });
+
+    document.removeEventListener('click', this.hideInfo);
+  }
+
+  openInfo = () => {
+    this.setState({ isInfoOpen: true });
+
+    document.addEventListener('click', this.hideInfo, false);
+  }
 
   renderInfoPopOver() {
     return (
