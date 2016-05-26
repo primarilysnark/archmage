@@ -1,7 +1,7 @@
-import { CharacterCreator, CharacterList, CharacterHeader } from './components/characters';
+import { CharacterCreator, CharacterList, CharacterHeader } from './shared/components/characters';
 import { IndexRoute, Route } from 'react-router';
-import App from './components/app';
-import CharacterCreatorOverview from './containers/character-creator-overview';
+import App from './shared/components/app';
+import CharacterCreatorOverview from './shared/containers/character-creator-overview';
 import React from 'react';
 
 export default (
