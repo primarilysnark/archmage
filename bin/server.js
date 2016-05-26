@@ -1,4 +1,5 @@
 /* eslint no-console: 0 */
+import { api } from '../src/server/api';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
 import Html from './html';
@@ -13,6 +14,8 @@ const app = express();
 
 app.use(compression());
 app.use(express.static(path.join(__dirname, '..', 'public')));
+
+app.use('/api', api);
 
 app.get('*', (req, res) => {
   match({
