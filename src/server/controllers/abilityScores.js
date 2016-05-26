@@ -1,5 +1,6 @@
 /* eslint array-callback-return: 0 */
 import { AbilityScore } from '../models';
+import { abilityScore as abilityScoreStrings } from '../../../localization/server.json';
 
 export function createAbilityScore(req, res) {
   const abilityScore = new AbilityScore({
@@ -13,7 +14,7 @@ export function createAbilityScore(req, res) {
     }
 
     res.json({
-      message: 'Ability score added to the vault.',
+      message: abilityScoreStrings.create,
       data: abilityScore,
     });
   });

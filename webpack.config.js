@@ -21,8 +21,12 @@ module.exports = {
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader!less-loader'),
       },
       {
+        test: /\.json$/,
+        loader: 'json-loader',
+      },
+      {
         test: /\.jsx?$/,
-        excluse: /(node_modules)/,
+        exclude: /(node_modules)/,
         loader: 'babel',
         query: {
           presets: ['react', 'es2015', 'stage-0'],

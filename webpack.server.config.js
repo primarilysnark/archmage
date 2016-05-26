@@ -30,6 +30,10 @@ module.exports = {
         loader: 'ignore',
       },
       {
+        test: /\.json$/,
+        loader: 'json-loader',
+      },
+      {
         test: require.resolve('react'),
         loader: 'expose?React',
       },

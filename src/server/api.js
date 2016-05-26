@@ -1,4 +1,5 @@
 import { createAbilityScore, getAbilityScores } from './controllers';
+import { upMessage } from '../../localization/server.json';
 import bodyParser from 'body-parser';
 import express from 'express';
 import mongoose from 'mongoose';
@@ -12,7 +13,7 @@ api.use(bodyParser.json());
 
 api.get('/', (req, res) => {
   res.json({
-    message: 'It is pitch black. You are likely to be eaten by a grue.',
+    message: upMessage,
   });
 });
 
