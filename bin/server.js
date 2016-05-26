@@ -44,5 +44,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Production express server running at localhost:${PORT}`);
+  console.log(`Archmage server running at localhost:${PORT}`);
 });
