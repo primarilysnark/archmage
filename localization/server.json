@@ -2,5 +2,11 @@
   "abilityScore": {
     "create": "Ability score added to the vault."
   },
+  "creatureType": {
+    "create": "Creature type added to the vault."
+  },
+  "race": {
+    "create": "Race added to the vault."
+  },
   "upMessage": "It is pitch black. You are likely to be eaten by a grue."
 }

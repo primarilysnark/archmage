@@ -1,8 +1,19 @@
-import { createAbilityScore, getAbilityScores } from './controllers';
 import { upMessage } from '../../localization/server.json';
 import bodyParser from 'body-parser';
 import express from 'express';
 import mongoose from 'mongoose';
+
+import {
+  createAbilityScore,
+  createCreatureSubType,
+  createCreatureType,
+  createRace,
+  deleteRace,
+  getAbilityScores,
+  getCreatureSubTypes,
+  getCreatureTypes,
+  getRaces,
+} from './controllers';
 
 export const api = express();
 
@@ -20,3 +31,18 @@ api.get('/', (req, res) => {
 api.route('/abilityScores')
   .get(getAbilityScores)
   .post(createAbilityScore);
+
+api.route('/creatureTypes')
+  .get(getCreatureTypes)
+  .post(createCreatureType);
+
+api.route('/creatureTypes/:creatureId/subTypes')
+  .get(getCreatureSubTypes)
+  .post(createCreatureSubType);
+
+api.route('/races')
+  .get(getRaces)
+  .post(createRace);
+
+api.route('/races/:raceId')
+  .delete(deleteRace);
