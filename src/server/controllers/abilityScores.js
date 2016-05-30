@@ -1,4 +1,3 @@
-/* eslint array-callback-return: 0 */
 import { AbilityScore } from '../models';
 import { abilityScore as abilityScoreStrings } from '../../../localization/server.json';
 
@@ -8,26 +7,18 @@ export function createAbilityScore(req, res) {
     name: req.body.name,
   });
 
-  abilityScore.save(err => {
-    if (err != null) {
-      res.send(err);
-    }
-
-    res.json({
+  return abilityScore.save()
+    .then(savedAbilityScore => res.json({
       message: abilityScoreStrings.create,
-      data: abilityScore,
-    });
-  });
+      data: savedAbilityScore,
+    }))
+    .catch(err => res.status(400).send(err));
 }
 
 export function getAbilityScores(req, res) {
-  AbilityScore.find((err, abilityScores) => {
-    if (err != null) {
-      res.send(err);
-    }
-
-    res.json({
+  return AbilityScore.find()
+    .then(abilityScores => res.json({
       data: abilityScores,
-    });
-  });
+    }))
+    .catch(err => res.send(err));
 }

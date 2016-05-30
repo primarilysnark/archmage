@@ -18,7 +18,6 @@ export function createRace(req, res) {
 
 export function deleteRace(req, res) {
   return Race.findById(req.params.raceId)
-    .exec()
     .then(race => {
       if (race == null) {
         return res.status(404).send();
@@ -32,7 +31,6 @@ export function deleteRace(req, res) {
 
 export function getRaces(req, res) {
   return Race.find()
-    .exec()
     .then(races => res.json({
       data: races,
     }))
