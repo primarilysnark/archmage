@@ -1,4 +1,3 @@
-/* eslint array-callback-return: 0 */
 import { Race } from '../models';
 import { race as raceStrings } from '../../../localization/server.json';
 
@@ -9,46 +8,33 @@ export function createRace(req, res) {
     name: req.body.name,
   });
 
-  race.save(err => {
-    if (err != null) {
-      res.send(err);
-    } else {
-      res.json({
-        message: raceStrings.create,
-        data: race,
-      });
-    }
-  });
+  return race.save()
+    .then(createdRace => res.json({
+      message: raceStrings.create,
+      data: createdRace,
+    }))
+    .catch(err => res.status(400).send(err));
 }
 
 export function deleteRace(req, res) {
-  Race.findById(req.params.raceId, (err, race) => {
-    if (err != null) {
-      return res.status(400).send(err);
-    }
-
-    if (race == null) {
-      return res.status(404).send();
-    }
-
-    return Race.where({ _id: req.params.raceId }).remove(removeErr => {
-      if (removeErr) {
-        return res.send(removeErr);
+  return Race.findById(req.params.raceId)
+    .exec()
+    .then(race => {
+      if (race == null) {
+        return res.status(404).send();
       }
 
-      return res.status(204).send();
-    });
-  });
+      return Race.where({ _id: req.params.raceId }).remove();
+    })
+    .then(() => res.status(204).send())
+    .catch(err => res.status(400).send(err));
 }
 
 export function getRaces(req, res) {
-  Race.find((err, races) => {
-    if (err != null) {
-      return res.send(err);
-    }
-
-    return res.json({
+  return Race.find()
+    .exec()
+    .then(races => res.json({
       data: races,
-    });
-  });
+    }))
+    .catch(err => res.send(err));
 }
